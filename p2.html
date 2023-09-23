@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  <script src = "./js/ext.js"></script> -->
+</head>
+<body>
+    <h3>External js functionn execution using call back (Asynchronous) </h3>
+    <script>
+        function loadScript(path,callback){
+            let script = document.createElement("script"); // script tag through js
+            script.src = path; 
+            // first call
+            script.onload = function(){
+                callback(script);
+            }
+            document.head.append(script);
+        }
+        loadScript('./js/ext.js',(script) =>{
+            // call
+                sum(12,33);
+                mul(12,44);
+        });
+    </script>
+</body>
+</html>
